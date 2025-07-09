@@ -1,0 +1,426 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Simple Inventory API",
+    "description": "This is a simple API",
+    "contact": {
+      "email": "you@your-company.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://virtserver.swaggerhub.com/gerardo-fd2/PartPlusAPI/1.0.0",
+      "description": "SwaggerHub API Auto Mocking"
+    }
+  ],
+  "tags": [
+    {
+      "name": "admins",
+      "description": "Secured Admin-only calls"
+    },
+    {
+      "name": "developers",
+      "description": "Operations available to regular developers"
+    }
+  ],
+  "paths": {
+    "/reservas": {
+      "get": {
+        "tags": [],
+        "summary": "Your GET endpoint",
+        "operationId": "get-reservas",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [],
+        "summary": "Your PUT endpoint",
+        "operationId": "put-reservas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/reservas_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "summary": "Your POST endpoint",
+        "operationId": "post-reservas",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/reservas_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "summary": "Your DELETE endpoint",
+        "operationId": "delete-reservas",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/clientes": {
+      "get": {
+        "tags": [],
+        "summary": "Your GET endpoint",
+        "operationId": "get-clientes",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "tags": [],
+        "summary": "Your PUT endpoint",
+        "operationId": "put-clientes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clientes_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [],
+        "summary": "Your POST endpoint",
+        "operationId": "post-clientes",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clientes_body_1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "delete": {
+        "tags": [],
+        "summary": "Your DELETE endpoint",
+        "operationId": "delete-clientes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/reservas/:id": {
+      "get": {
+        "tags": [],
+        "summary": "Your GET endpoint",
+        "operationId": "get-reservas-:id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/clientes/:id": {
+      "get": {
+        "tags": [],
+        "summary": "Your GET endpoint",
+        "operationId": "get-clientes-:id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "reservas_body": {
+        "required": [
+          "clientId",
+          "service",
+          "status",
+          "vehicle"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "yvm5b7pps96bx"
+            }
+          },
+          "vehicle": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "ulw8hntk8zb5j"
+            }
+          },
+          "service": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "t6arwbr8kt7v1"
+            }
+          },
+          "status": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "3cjdlo8ci3lhr"
+            }
+          }
+        }
+      },
+      "reservas_body_1": {
+        "required": [
+          "clientId",
+          "service",
+          "status",
+          "vehicle"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "quutmvinxy97k"
+            }
+          },
+          "vehicle": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "c2ifhjmlyxrnl"
+            }
+          },
+          "service": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "b7ueadf57m80m"
+            }
+          },
+          "status": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "wmf5fozz2xa4d"
+            }
+          }
+        }
+      },
+      "clientes_body": {
+        "required": [
+          "age",
+          "email",
+          "name",
+          "password",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "fwntgo9i9ha9j"
+            }
+          },
+          "email": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "0vmj1rjjo7yte"
+            }
+          },
+          "password": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "0adb72opqn8f7"
+            }
+          },
+          "phone": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "kazfz47vhy1iw"
+            }
+          },
+          "age": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "0f7f204v68nan"
+            }
+          }
+        }
+      },
+      "clientes_body_1": {
+        "required": [
+          "age",
+          "email",
+          "name",
+          "password",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "o7jvrxy6f5n34"
+            }
+          },
+          "email": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "lhhkf3phyrhmb"
+            }
+          },
+          "password": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "livz7g0tiohnr"
+            }
+          },
+          "phone": {
+            "type": "string",
+            "x-stoplight": {
+              "id": "pclds8ieuv8ab"
+            }
+          },
+          "age": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "7rog9fjb6rjsg"
+            }
+          }
+        }
+      }
+    }
+  }
+}
